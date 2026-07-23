@@ -1,4 +1,15 @@
-## Hi there 👋
+### Jon Hauk
+Junior DevSecOps Engineer Candidate | Edmonton, AB
+
+Security+ · CCSK v5 · Network+ · A+
+Building toward SOHO/ZTA implementation and automation tooling.
+
+**Currently:**
+- 🔧 NetworkReport.ps1 — PowerShell network diagnostics tool
+- 🔐 ZTA home lab — identity, micro-segmentation, telemetry
+
+**Find me:**
+[LinkedIn](https://www.linkedin.com/in/jhauk780/)
 
 <!--
 **Jon-Hauk/Jon-Hauk** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
