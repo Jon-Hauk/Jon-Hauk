@@ -5,7 +5,7 @@ Security+ · CCSK v5 · Network+ · A+
 Building toward SOHO/ZTA implementation and automation tooling.
 
 **Currently:**
-- 🔧 NetworkReport.ps1 — PowerShell network diagnostics tool
+- 🔧 NetworkReportV5.ps1 — PowerShell network diagnostics tool
 - 🔐 ZTA home lab — identity, micro-segmentation, telemetry
 
 **Find me:**
