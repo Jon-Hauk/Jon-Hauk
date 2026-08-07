@@ -1,7 +1,7 @@
 ### Jon Hauk
-Junior DevSecOps Engineer Candidate | Edmonton, AB
+Security operations, cloud security, and infrastructure automation.
+Security+ · CCSK v5 · Network+ · A+ — Edmonton, AB
 
-Security+ · CCSK v5 · Network+ · A+
 Building toward SOHO/ZTA implementation and automation tooling.
 
 **Currently:**
