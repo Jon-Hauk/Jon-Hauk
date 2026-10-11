@@ -27,7 +27,9 @@ with no dependencies. Linux has the same contract in standard-library Python
 3.8+: 19 findings across 15 areas and 146 tests in CI, with container checks
 run against a live Docker daemon. Nothing is installed on the target and
 nothing is modified. A check that could not read its input reports `UNKN`, not
-a pass.
+a pass. An opt-in Microsoft 365 / Entra mode runs a read-only posture
+assessment only against a signed engagement record, and refuses any sign-in
+that carries more than its six read permissions.
 
 **[automation-kits](https://github.com/Jon-Hauk/automation-kits)**: single-file
 diagnostic kits handed to a client to run on their own machine. No repo, no
