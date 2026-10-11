@@ -77,6 +77,7 @@ endpoint. I wrote its threat model and did the security pass on it:
   invisible to the test fixtures. Afterwards I found a standing admin write
   grant on my own tenant and revoked it, and I didn't pre-grant the next
   audit's access either.
+  [Write-up](https://github.com/Jon-Hauk/engineering-records/blob/main/labs/LAB-2026-09-20-entra-identity.md).
 - **Zero-trust tailnet policy as code**: default-deny across four nodes, with
   an access-test block in CI and a job that diffs the live policy against the
   repo. At first apply, the permitted sources went from an entire /11 range to
@@ -84,6 +85,8 @@ endpoint. I wrote its threat model and did the security pass on it:
   packet filter rather than the console's success message. The best find
   wasn't the policy: a VM deleted two weeks earlier still held an authorized
   node key and a live address.
+  [Design decisions](https://github.com/Jon-Hauk/engineering-records/tree/main/adr)
+  (ADRs 0002-0004).
 - **genai**: an image/video SDK over local GPU and cloud backends. Python,
   uv-locked, 44 tests, and a confirmation gate on anything that spends money.
 - **ESP32-S3 firmware**: a USB HID keyboard that boots locked, arms only on a
