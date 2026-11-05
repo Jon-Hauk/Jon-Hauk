@@ -1,98 +1,83 @@
 ### Jon Hauk
 
-IT support and security, Windows and Linux. Edmonton, AB.
+Edmonton, AB · targeting SOC Tier 1 / NOC / junior DevSecOps.
 
-**Security+ · Network+ · A+ · CCSK v5**, plus CompTIA's CIOS and CSIS
-stackables: six credentials in nine weeks, earned while working full time.
-[Verify them on Credly](https://www.credly.com/users/jon-nicholas-hauk/badges).
+**Security+ · Network+ · A+ · CCSK v5**, plus CompTIA CIOS and CSIS
+stackables. Six credentials in about nine weeks while working full time.
+[Verify on Credly](https://www.credly.com/users/jon-nicholas-hauk/badges).
 
-I build tools I need, then run them against my own machines until they stop
-lying to me. My background is industrial operations, so I think in terms of
-blast radius, rollback, and whether a control actually ran.
+I build the tools I need, then run them on my own machines until they stop
+lying. Industrial ops background: blast radius, rollback, and whether a
+control actually ran.
 
-**How I work:** most of the code in these projects was drafted with AI coding
-tools. I choose the architecture, review what lands, write and run the tests,
-and own the result when it breaks. I'd rather be assessed on how well I use the
-tools than have it come up later. I'll work to whatever policy a team has,
-including unassisted where that's the requirement.
+**How I work:** most code in these projects was drafted with AI coding tools.
+I own architecture, review, tests, and breakage. Assess me on how I use the
+tools. I’ll follow a team’s policy, including unassisted work when required.
 
 ---
 
 #### Open source
 
-**[fieldkit](https://github.com/Jon-Hauk/fieldkit)**: read-only diagnostics for
-client engagements, Windows and Linux. Windows has 42 checks across system
-inventory, network fault isolation and a security baseline, in PowerShell 5.1
-with no dependencies. Linux has the same contract in standard-library Python
-3.8+: 19 findings across 15 areas and 146 tests in CI, with container checks
-run against a live Docker daemon. Nothing is installed on the target and
-nothing is modified. A check that could not read its input reports `UNKN`, not
-a pass. An opt-in Microsoft 365 / Entra mode runs a read-only posture
-assessment only against a signed engagement record, and refuses any sign-in
-that carries more than its six read permissions.
+**[fieldkit](https://github.com/Jon-Hauk/fieldkit)** — read-only Windows/Linux
+diagnostics for client engagements. One command, one report; nothing installed
+or modified on the target. Windows: 42 checks on PowerShell 5.1. Linux: stdlib
+Python 3.8+, 19 findings, **146 tests in CI** (verified 2026-09-11); container
+checks run against a live Docker daemon in CI. Unreadable controls report
+`UNKN`, not pass. Opt-in M365/Entra mode is read-only against a signed
+engagement and refuses over-scoped sign-in.
 
-**[automation-kits](https://github.com/Jon-Hauk/automation-kits)**: single-file
-diagnostic kits handed to a client to run on their own machine. No repo, no
-dependencies, readable before they trust it.
+**[automation-kits](https://github.com/Jon-Hauk/automation-kits)** — single-file
+kits a client can run alone. No repo checkout, no deps, readable before trust.
 
-**[win-sec-snapshot](https://github.com/Jon-Hauk/win-sec-snapshot)**: a
-one-command, read-only Windows security posture snapshot (JSON + Markdown). It
-records value names, not values, and process names, not command lines.
+**[win-sec-snapshot](https://github.com/Jon-Hauk/win-sec-snapshot)** — one-command
+read-only Windows posture snapshot (JSON + Markdown). Value *names*, not values;
+process *names*, not command lines.
 
-**[localagent](https://github.com/Jon-Hauk/localagent)**: a coding harness for
-local Ollama models where every write and every execution waits for my
-approval.
+**[localagent](https://github.com/Jon-Hauk/localagent)** — local Ollama harness;
+every write and execution waits for approval.
 
-**[engineering-records](https://github.com/Jon-Hauk/engineering-records)**:
-decision records, incident reports and lab write-ups from my private security
-lab. The incident I'm oddly proud of: six security gates committed to a repo
-where they had never once executed, five of which could not have worked as
-configured. I filed it as an incident instead of quietly fixing it, because a
-config that only looks configured is worse than no config.
+**[engineering-records](https://github.com/Jon-Hauk/engineering-records)** —
+ADRs, incidents, and lab write-ups. Example: six security gates committed where
+they had never executed; five could not have worked as configured. Filed as an
+incident instead of a quiet fix.
+
+**[curriculum-proof](https://github.com/Jon-Hauk/curriculum-proof)** — verified
+pipeline scores only (Alberta item content stays private): machine-scored
+results published in-repo. Caveat from the repo: public forms may be in training
+data; one run per form; not an unseen-problem claim.
 
 ---
 
 #### Live
 
-**[Veridian](https://veridian.today)**: a multi-agent AI console built with
-React 19, Express 5, PostgreSQL/Drizzle and Clerk for identity, with per-agent
-responses streamed over SSE. It has a public API with API-key auth and an MCP
-endpoint. I wrote its threat model and did the security pass on it:
-- consolidated two divergent paid-access checks after finding one ignored the
-  user ID entirely;
-- moved API-key comparison to constant time;
-- made the usage quota reserve before the model call, so aborting mid-request
-  cannot bypass the daily cap.
+**[Veridian](https://veridian.today)** — multi-agent AI console (React 19,
+Express 5, PostgreSQL/Drizzle, Clerk, SSE). I wrote the threat model and
+security pass: fixed divergent paid-access checks (one ignored user ID),
+constant-time API-key compare, quota reserved before the model call so abort
+cannot bypass the daily cap.
 
 ---
 
-#### Lab work (private, happy to walk through)
+#### Lab work (private; write-ups public)
 
-- **IDS lab**: Suricata on a Jetson Orin Nano. One signature fired live on
-  two deliberate requests, a negative control stayed quiet, and a separate
-  packet capture confirmed the payload. The evidence is hashed and passes a
-  redaction gate before it is committed.
+- **IDS lab** — Suricata on Jetson Orin Nano. One signature fired on two
+  deliberate requests; negative control quiet; separate PCAP confirmed payload.
+  Evidence hashed + redaction gate.
   [Write-up](https://github.com/Jon-Hauk/engineering-records/blob/main/labs/LAB-2026-09-30-ids-suricata.md).
-  Next: a Wazuh SIEM ingesting it.
-- **M365 / Entra posture lab**: five audits said nothing was open. The first
-  live run against a real tenant found four defects in one night, every one
-  invisible to the test fixtures. Afterwards I found a standing admin write
-  grant on my own tenant and revoked it, and I didn't pre-grant the next
-  audit's access either.
+- **M365 / Entra posture** — fixtures green; first live tenant run found four
+  defects. Revoked a standing admin write grant afterward.
   [Write-up](https://github.com/Jon-Hauk/engineering-records/blob/main/labs/LAB-2026-09-20-entra-identity.md).
-- **Zero-trust tailnet policy as code**: default-deny across four nodes, with
-  an access-test block in CI and a job that diffs the live policy against the
-  repo. At first apply, the permitted sources went from an entire /11 range to
-  four explicit hosts, TCP only, two ports, verified against the compiled
-  packet filter rather than the console's success message. The best find
-  wasn't the policy: a VM deleted two weeks earlier still held an authorized
-  node key and a live address.
-  [Design decisions](https://github.com/Jon-Hauk/engineering-records/tree/main/adr)
-  (ADRs 0002-0004).
-- **genai**: an image/video SDK over local GPU and cloud backends. Python,
-  uv-locked, 44 tests, and a confirmation gate on anything that spends money.
-- **ESP32-S3 firmware**: a USB HID keyboard that boots locked, arms only on a
-  deliberate hold, and re-locks whenever a USB host appears.
+- **Zero-trust tailnet as code** — default-deny, CI access tests, live-vs-repo
+  policy diff. Permitted sources went from a /11 to four hosts, TCP-only, two
+  ports — checked against the compiled filter, not the console success toast.
+  [ADRs 0002–0004](https://github.com/Jon-Hauk/engineering-records/tree/main/adr).
+- **genai** — local GPU + cloud image/video SDK; uv-locked; 44 tests; confirmation
+  gate on spend.
+- **ESP32-S3 HID** — boots locked; arms on deliberate hold; re-locks when a USB
+  host appears.
+
+*(sysmon → Sentinel triage portfolio is local scaffolding only — not listed
+here until it’s public and scrubbed.)*
 
 ---
 
