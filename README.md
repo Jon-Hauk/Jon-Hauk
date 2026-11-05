@@ -33,6 +33,12 @@ kits a client can run alone. No repo checkout, no deps, readable before trust.
 read-only Windows posture snapshot (JSON + Markdown). Value *names*, not values;
 process *names*, not command lines.
 
+**[sysmon-sentinel-triage](https://github.com/Jon-Hauk/sysmon-sentinel-triage)** —
+six Sysmon detections in KQL for Microsoft Sentinel, triage templates, and a
+redactor that refuses to write if anything it recognises survives. **Draft:**
+33 test cases pass on a real Kusto engine, synthetic events only. Nothing has
+run on live telemetry, and no alert firing is claimed.
+
 **[localagent](https://github.com/Jon-Hauk/localagent)** — local Ollama harness;
 every write and execution waits for approval.
 
@@ -75,9 +81,6 @@ cannot bypass the daily cap.
   gate on spend.
 - **ESP32-S3 HID** — boots locked; arms on deliberate hold; re-locks when a USB
   host appears.
-
-*(sysmon → Sentinel triage portfolio is local scaffolding only — not listed
-here until it’s public and scrubbed.)*
 
 ---
 
