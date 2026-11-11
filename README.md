@@ -1,6 +1,6 @@
 ### Jon Hauk
 
-Edmonton, AB · targeting SOC Tier 1 / NOC / junior DevSecOps.
+Edmonton, AB · Automation & Software Engineer, AI systems | Windows, network & security tooling | Security+, CCSK
 
 **Security+ · Network+ · A+ · CCSK v5**, plus CompTIA CIOS and CSIS
 stackables. Six credentials in about nine weeks while working full time.
