@@ -18,6 +18,14 @@ tools. I’ll follow a team’s policy, including unassisted work when required.
 
 #### Open source
 
+**[monthend-report-demo](https://github.com/Jon-Hauk/monthend-report-demo)** —
+messy accounting CSV exports in; month-end Excel workbook and one-page PDF out
+(actual vs budget, change vs prior month, by category and department). Nothing
+dropped silently: every skipped line is logged with file, line and original
+text. **10 tests** reconcile the cleaned output to a known source of truth to
+the cent; CI checks the sample data regenerates byte-for-byte. Synthetic data
+only.
+
 **[fieldkit](https://github.com/Jon-Hauk/fieldkit)** — read-only Windows/Linux
 diagnostics for client engagements. One command, one report; nothing installed
 or modified on the target. Windows: 42 checks on PowerShell 5.1. Linux: stdlib
